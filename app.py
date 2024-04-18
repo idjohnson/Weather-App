@@ -1,12 +1,12 @@
 from flask import Flask, request, render_template
 from decimal import Decimal, ROUND_HALF_UP
+import os
 import requests
 import datetime as dt
 
 app = Flask(__name__)
 
-# Your API Key
-API_KEY = '5f1348e8f6aa675ecc09c5bafd5cf2d3'
+API_KEY = os.environ.get('API_KEY')
 
 def kelvin_to_fahrenheit(kelvin):
     fahrenheit = Decimal(kelvin * 1.8 - 459.67)
